@@ -1,0 +1,5 @@
+---
+- name: Run directory role on all hosts
+  hosts: db_server
+  roles:
+    - directory

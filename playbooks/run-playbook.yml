@@ -1,0 +1,10 @@
+---
+- name: Run Docker Compose on remote server
+  hosts: db_server
+  become: yes
+
+  tasks:
+    - name: Change to directory and run docker-compose up
+      ansible.builtin.command:
+        cmd: docker-compose up -d
+        chdir: /home/thed/workplace/monitoring/

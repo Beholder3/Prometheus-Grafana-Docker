@@ -1,0 +1,24 @@
+    - name: Create workplace directory insisde home
+      ansible.builtin.file:
+        path: /home/thed/workplace
+        state: directory
+      tags:
+        - directory
+
+    - name: Create monitoring directory inside workstation
+      ansible.builtin.file:
+        path: /home/thed/workplace/monitoring
+        state: directory
+      tags:
+        - directory
+
+    - name: Copy docker-compose.yml to target directory
+      ansible.builtin.copy:
+        src: ./docker-compose.yml
+        dest: /home/thed/workplace/monitoring/docker-compose.yml
+
+    - name: Copy prometheus folder to target directory
+      copy:
+        src: ./prometheus/
+        dest: /home/thed/workplace/monitoring/prometheus/
+    
